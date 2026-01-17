@@ -20,7 +20,11 @@ load_dotenv()
 app = FastAPI(title="RAG API", version="1.0.0")
 
 # CORS
-origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+origins = os.getenv(
+    "CORS_ORIGINS",
+    "http://localhost:3000,https://rag-ten-blond.vercel.app"
+).split(",")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
